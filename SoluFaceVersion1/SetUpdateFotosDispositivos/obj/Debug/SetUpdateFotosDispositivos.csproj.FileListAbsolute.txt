@@ -1,0 +1,6 @@
+C:\Users\Cristobal\source\repos\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\obj\Debug\SetUpdateFotosDispositivos.csproj.AssemblyReference.cache
+C:\Users\Cristobal\source\repos\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\obj\Debug\SetUpdateFotosDispositivos.csproj.SuggestedBindingRedirects.cache
+C:\Users\Cristobal\source\repos\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\obj\Debug\SetUpdateFotosDispositivos.ProjectInstaller.resources
+C:\Users\Cristobal\source\repos\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\obj\Debug\SetUpdateFotosDispositivos.Service1.resources
+C:\Users\Cristobal\source\repos\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\obj\Debug\SetUpdateFotosDispositivos.csproj.GenerateResource.cache
+C:\Users\Cristobal\source\repos\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\obj\Debug\SetUpdateFotosDispositivos.csproj.CoreCompileInputs.cache

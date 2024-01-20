@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeviceInfo.cs" />
     <Compile Include="DispositivoBiometrico.cs" />
     <Compile Include="HttpClient.cs" />
     <Compile Include="ProjectInstaller.cs">
