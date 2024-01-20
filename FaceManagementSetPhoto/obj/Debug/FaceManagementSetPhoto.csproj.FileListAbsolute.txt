@@ -1,0 +1,16 @@
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/bin/Debug/FaceManagementSetPhoto.exe.config
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/bin/Debug/FaceManagementSetPhoto.exe
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/bin/Debug/FaceManagementSetPhoto.pdb
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/bin/Debug/CapaModelo.dll
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/bin/Debug/Newtonsoft.Json.dll
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/bin/Debug/CapaModelo.pdb
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/bin/Debug/Newtonsoft.Json.xml
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.csproj.AssemblyReference.cache
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagement.frmFaceManagementSetPhoto.resources
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.Properties.Resources.resources
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.AddDevice.resources
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.csproj.GenerateResource.cache
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.csproj.CoreCompileInputs.cache
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.csproj.CopyComplete
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.exe
+/Users/diegosolares/Documents/FaceManagement_Actual-master/FaceManagementSetPhoto/obj/Debug/FaceManagementSetPhoto.pdb
