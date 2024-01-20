@@ -246,6 +246,18 @@ namespace FaceManagement
             MessageBox.Show("Set Picture Failed!");
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
         private List<DispositivoBiometrico> GetDeviceList()
         {
             List<DispositivoBiometrico> deviceList = new List<DispositivoBiometrico>();

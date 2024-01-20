@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceManagementSetPhoto", "..\FaceManagementSetPhoto\FaceManagementSetPhoto.csproj", "{5B6BCB57-29D7-4CD3-9E7E-98C9FFEB9F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetUpdateFotosDispositivos", "SetUpdateFotosDispositivos\SetUpdateFotosDispositivos.csproj", "{7072A137-5356-4D37-AD49-D8D90752A9BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B6BCB57-29D7-4CD3-9E7E-98C9FFEB9F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6BCB57-29D7-4CD3-9E7E-98C9FFEB9F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6BCB57-29D7-4CD3-9E7E-98C9FFEB9F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6BCB57-29D7-4CD3-9E7E-98C9FFEB9F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7072A137-5356-4D37-AD49-D8D90752A9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7072A137-5356-4D37-AD49-D8D90752A9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7072A137-5356-4D37-AD49-D8D90752A9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7072A137-5356-4D37-AD49-D8D90752A9BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C838F2B4-5EA1-4991-8AC1-EE9406DD60C4}
+	EndGlobalSection
+EndGlobal
