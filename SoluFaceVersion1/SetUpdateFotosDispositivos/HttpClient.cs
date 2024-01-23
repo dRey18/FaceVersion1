@@ -1120,7 +1120,7 @@ namespace SetUpdateFotosDispositivos
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 statusString = httpBody;
             }

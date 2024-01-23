@@ -33,12 +33,16 @@
             // 
             // serviceProcessInstaller1
             // 
+            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalService;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.ServiceName = "Service1";
+            this.serviceInstaller1.Description = "Servicio de replicacion de imagenes en dispositivos biometricos";
+            this.serviceInstaller1.DisplayName = "Replicacion imagenes";
+            this.serviceInstaller1.ServiceName = "ReplicacionImagenesDispositivos";
+            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
             // 

@@ -33,11 +33,12 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Service1
             // 
-            this.ServiceName = "Service1";
+            this.ServiceName = "ReplicacionImagenesDispositivos";
 
         }
 

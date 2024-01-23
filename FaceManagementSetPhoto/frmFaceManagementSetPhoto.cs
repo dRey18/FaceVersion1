@@ -19,7 +19,6 @@ using System.Text.RegularExpressions;
 using FaceManagementSetPhoto;
 using System.Drawing.Text;
 using System.Data.SqlClient;
-using CapaModelo;
 
 namespace FaceManagement
 {
@@ -247,17 +246,6 @@ namespace FaceManagement
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
         private List<DispositivoBiometrico> GetDeviceList()
         {
             List<DispositivoBiometrico> deviceList = new List<DispositivoBiometrico>();
@@ -295,12 +283,8 @@ namespace FaceManagement
                                     Nombre = nombre,
                                     DireccionIP = direccionIP,
                                     Puerto = puerto,
-                                    NoPuerta = noPuerta,
-                                    NoPlan = noPlan,
                                     Usuario = usuario,
-                                    Clave = clave,
-                                    TipoUsuario = tipoUsuario,
-                                    Asistencia = asistencia
+                                    Clave = clave
                                 };
 
                                 deviceList.Add(device);
