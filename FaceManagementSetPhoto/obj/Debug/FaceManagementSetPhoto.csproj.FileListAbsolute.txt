@@ -23,3 +23,16 @@ C:\Users\Cristobal\source\repos\FaceVersion1\FaceManagementSetPhoto\obj\Debug\Fa
 C:\Users\Cristobal\source\repos\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.csproj.CoreCompileInputs.cache
 C:\Users\Cristobal\source\repos\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.exe
 C:\Users\Cristobal\source\repos\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.pdb
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\bin\Debug\FaceManagementSetPhoto.exe.config
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\bin\Debug\FaceManagementSetPhoto.exe
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\bin\Debug\FaceManagementSetPhoto.pdb
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.csproj.AssemblyReference.cache
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagement.frmFaceManagementSetPhoto.resources
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.Properties.Resources.resources
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.AddDevice.resources
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.csproj.GenerateResource.cache
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.csproj.CoreCompileInputs.cache
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.csproj.CopyComplete
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.exe
+C:\Users\dsolares\Documents\Dev DS\FaceVersion1\FaceManagementSetPhoto\obj\Debug\FaceManagementSetPhoto.pdb

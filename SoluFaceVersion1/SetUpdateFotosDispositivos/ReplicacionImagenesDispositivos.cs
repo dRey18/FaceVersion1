@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,12 +13,13 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
+//using System.Windows.Forms;
 
 namespace SetUpdateFotosDispositivos
 {
     public partial class Service1 : ServiceBase
     {
-
         public Service1()
         {
             InitializeComponent();
@@ -26,33 +28,95 @@ namespace SetUpdateFotosDispositivos
 
         protected override void OnStart(string[] args)
         {
-            timer1.Start();
-              
+            //timer1.Start();
+            Timer timer = new Timer();
+            timer.Interval = 60000; // 60 seconds
+            timer.Elapsed += new ElapsedEventHandler(this.timer1_Tick);
+            timer.Start();
+
+            EventLog.WriteEntry("Inicio de proceso de Actualizacion de Biometros", EventLogEntryType.Information);
+
         }
 
         protected override void OnStop()
         {
             timer1.Stop();
+            EventLog.WriteEntry("Se detuvo el proceso de Actualizacion de Biometros", EventLogEntryType.Information);
+        }
+
+        private List<string> ObtenerCodigoEmpleadoReplicar()
+        {
+
+            List<string> codigosEmpleado = new List<string>();
+
+            try
+            {
+                //cadena de conn
+                string Servidor = ConfigurationManager.AppSettings["Servidor"].ToString();
+                string BaseDatos = ConfigurationManager.AppSettings["BaseDatos"].ToString();
+                string Usuario_Login_DB = ConfigurationManager.AppSettings["Usuario_Login_DB"].ToString();
+                string Password_DB = ConfigurationManager.AppSettings["Password_DB"].ToString();
+
+                string connectionString = ObtenerConnectionStringDesdeArchivo(Servidor, BaseDatos, Usuario_Login_DB, Password_DB);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string qry = "SELECT CodigoEmpleado FROM REP_ImagenEmpleadoRondaSeg";
+
+                    using (SqlCommand command = new SqlCommand(qry, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string codigo = reader.GetString(reader.GetOrdinal("CodigoEmpleado"));
+                                codigosEmpleado.Add(codigo);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+
+                EventLog.WriteEntry("Error al obtener el codigo de empleado: " + ex.Message, EventLogEntryType.Error);
+            }
+            return codigosEmpleado;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Stop();
+            //timer1.Stop();
+
             try
             {
                 EventLog.WriteEntry("Inicio de proceso de Actualizacion de Biometros", EventLogEntryType.Information);
 
                 //Obtener el listado de los dispositivos desde la DB
                 var ListaDispositivos = GetDeviceList();
+                // Obtener la lista de códigos de empleado desde la base de datos
+                List<string> codigosEmpleado = ObtenerCodigoEmpleadoReplicar();
 
 
                 //Iteramos sobre cada uno de los relojes disponibles
                 for (int dispositivoBiometrico = 0; dispositivoBiometrico < ListaDispositivos.Count; dispositivoBiometrico++)
                 {
+                    // Iterar sobre cada código de empleado y crear usuarios en el reloj
+                    foreach (string codigoEmpleado in codigosEmpleado)
+                    {
+                        crearUsuarioEnReloj(ListaDispositivos[dispositivoBiometrico].DireccionIP, ListaDispositivos[dispositivoBiometrico].Puerto.ToString(),
+                            ListaDispositivos[dispositivoBiometrico].Usuario, ListaDispositivos[dispositivoBiometrico].Clave, codigoEmpleado, "NombreGeneral");
+                    }
+
                     //Actualizar la imagen de cada uno de los empleados a cada dispositivo 
                     List<string> file_list = new List<string>();
                     //hacemos uso de la funcion "searchDirectory, para hacer referencia la ruta completa
                     SearchDirectory(ConfigurationManager.AppSettings["DirectorioPicture"].ToString(), file_list);
+
 
                     //iteramos sobre la lista de dispositivos pasandole cada una de las imagenes disponibles
                     for (int imagenLocal = 0; imagenLocal < file_list.Count; imagenLocal++)
@@ -61,13 +125,16 @@ namespace SetUpdateFotosDispositivos
                         Actualizar_ImagenesDispositivos(ListaDispositivos[dispositivoBiometrico].DireccionIP, ListaDispositivos[dispositivoBiometrico].Puerto.ToString(),
                             ListaDispositivos[dispositivoBiometrico].Usuario, ListaDispositivos[dispositivoBiometrico].Clave, file.Name.Replace(".jpg", ""), file_list[imagenLocal]);
                     }
+                    EventLog.WriteEntry("Fin de proceso de Actualizacion de Biometros", EventLogEntryType.Information);
+
                 }
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry(ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry(ex.Message, EventLogEntryType.Information);
             }
-            timer1.Start();
+            // timer1.Start();
+            EventLog.WriteEntry("Se actualizo correctamente la replicacion de imagenes", EventLogEntryType.Information);
         }
 
 
@@ -136,10 +203,46 @@ namespace SetUpdateFotosDispositivos
         private string ObtenerConnectionStringDesdeArchivo(string G_Servidor, string G_BaseDatos, string G_Usuario_Login_DB, string G_Password_DB)
         {
             string ConectionString = @"Data Source = " + G_Servidor + "; Initial Catalog = " + G_BaseDatos + "; User ID = " + G_Usuario_Login_DB + "; Password = " + G_Password_DB;
+
+
+            EventLog.WriteEntry("Se obtuvo correctamente la base de datos", EventLogEntryType.Information);
             return ConectionString;
+
         }
 
-        //Funcion para guardar/actualizar las imagenes en cada reloj
+
+        private void crearUsuarioEnReloj(string pIPDispositivo, string pPuertoDispositivo, string pUsuarioDispositivo, string pContraseñaDispositivo, string pCodigoEmpleado, string pNombreEmpleado)
+        {
+            try
+            {
+                string szUrl = "/ISAPI/AccessControl/UserInfo/SetUp?format=json";
+                string szRequest = "{\"UserInfo\":{\"employeeNo\":\"" + pCodigoEmpleado +
+                    "\",\"name\":\"" + pNombreEmpleado +
+                    "\",\"userType\":\"normal\",\"Valid\":{\"enable\":true,\"beginTime\":\"2017-08-01T17:30:08\",\"endTime\":\"2020-08-01T17:30:08\"},\"doorRight\": \"1\",\"RightPlan\":[{\"doorNo\":1,\"planTemplateNo\":\"" + "1" + "\"}]}}";
+                string szMethod = "PUT";
+
+                string szResponse = ActionISAPI(pIPDispositivo, pPuertoDispositivo, pUsuarioDispositivo, pContraseñaDispositivo, szUrl, szRequest, szMethod);
+
+                if (szResponse != string.Empty)
+                {
+                    ResponseStatus rs = JsonConvert.DeserializeObject<ResponseStatus>(szResponse);
+                    if (1 == rs.statusCode)
+                    {
+                        EventLog.WriteEntry("Set UserInfo Succ!");
+                    }
+                    else
+                    {
+                        EventLog.WriteEntry("No se pudo crear el usuario!", EventLogEntryType.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("Error en la replicacion de usuario: " + ex.Message, EventLogEntryType.Information);
+            }
+        }
+
+
         /// <summary>
         /// Parametros que se utilizan para guardar la informaicon en cada reloj
         /// </summary>
@@ -156,7 +259,8 @@ namespace SetUpdateFotosDispositivos
             {
                 string szUrl = "/ISAPI/AccessControl/UserInfo/Search?format=json";
                 string szResponse = string.Empty;
-                string szRequest = "{\"UserInfoSearchCond\":{\"searchID\":\"1\",\"searchResultPosition\":0,\"maxResults\":30,\"EmployeeNoList\":[{\"employeeNo\":\"" + pEmployeeNo + "\"}]}}";
+                string szRequest = "{\"UserInfoSearchCond\":{\"searchID\":\"1\",\"searchResultPosition\":0,\"maxResults\":30,\"EmployeeNoList\":[{\"employeeNo\":\"" 
+                    + pEmployeeNo + "\"}]}}";
                 string szMethod = "POST";
 
                 //查询是否存在工号
@@ -251,7 +355,6 @@ namespace SetUpdateFotosDispositivos
                     if (idDispositivo != Guid.Empty)
                     {
                         InsertarInformacionEnDB(idDispositivo, pEmployeeNo, Environment.UserName);
-
                     }
                 }
             }
@@ -285,6 +388,26 @@ namespace SetUpdateFotosDispositivos
                 {
                     connection.Open();
 
+
+                    // Verificar si ya existe el registro en la base de datos
+                    string checkIfExistsQuery = "SELECT COUNT(*) FROM REP_DispositivoBiometricoFacialImagenEmpleadoRondaSeg " +
+                                                "WHERE IdDispositivo = @IdDispositivo AND CodigoEmpleado = @CodigoEmpleado";
+
+                    using (SqlCommand checkCommand = new SqlCommand(checkIfExistsQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@IdDispositivo", idDispositivo);
+                        checkCommand.Parameters.AddWithValue("@CodigoEmpleado", codigoEmpleado);
+
+                        int existingRecords = (int)checkCommand.ExecuteScalar();
+
+                        // Si ya existe, no hacemos nada
+                        if (existingRecords > 0)
+                        {
+                            EventLog.WriteEntry($"Registro para IdDispositivo: {idDispositivo}, CodigoEmpleado: {codigoEmpleado} ya existe.", EventLogEntryType.Information);
+                            return;
+                        }
+                    }
+
                     string qry = "INSERT INTO REP_DispositivoBiometricoFacialImagenEmpleadoRondaSeg (IdDispositivo, CodigoEmpleado, CreadoPor, FechaCreacion) " +
                         "VALUES (@IdDispositivo, @CodigoEmpleado, @CreadoPor, GETDATE())";
 
@@ -300,7 +423,7 @@ namespace SetUpdateFotosDispositivos
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("Error al insertar en la base de datos: " + ex.Message, EventLogEntryType.Information);
+                EventLog.WriteEntry("Error al insertar en la base de datos: " + ex.StackTrace, EventLogEntryType.Information);
             }
         }
         /// <summary>
@@ -407,6 +530,9 @@ namespace SetUpdateFotosDispositivos
             }
             catch
             {
+
+                EventLog.WriteEntry("No se encontro el directorio", EventLogEntryType.Information);
+
             }
         }
     }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceManagementSetPhoto", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetUpdateFotosDispositivos", "SetUpdateFotosDispositivos\SetUpdateFotosDispositivos.csproj", "{7072A137-5356-4D37-AD49-D8D90752A9BF}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetUpdateFotosDispositivos.Installer", "SetUpdateFotosDispositivos.Installer\SetUpdateFotosDispositivos.Installer.vdproj", "{5663D6B8-66EE-4382-BBE4-E324B98A83BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{7072A137-5356-4D37-AD49-D8D90752A9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7072A137-5356-4D37-AD49-D8D90752A9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7072A137-5356-4D37-AD49-D8D90752A9BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5663D6B8-66EE-4382-BBE4-E324B98A83BA}.Debug|Any CPU.ActiveCfg = Debug
+		{5663D6B8-66EE-4382-BBE4-E324B98A83BA}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

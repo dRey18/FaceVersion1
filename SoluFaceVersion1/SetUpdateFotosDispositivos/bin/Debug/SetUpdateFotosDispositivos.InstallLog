@@ -115,3 +115,16 @@ Los parámetros afectados son:
    logtoconsole = 
    logfile = C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.InstallLog
    assemblypath = C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.exe
+Instalando ensamblado 'C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.InstallLog
+   assemblypath = C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.exe
+Instalando el servicio ReplicacionImagenesDispositivos...
+El servicio ReplicacionImagenesDispositivos se ha instalado correctamente.
+Creando el origen de EventLog ReplicacionImagenesDispositivos en el registro Application...
+Confirmando ensamblado 'C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.InstallLog
+   assemblypath = C:\Users\dsolares\Documents\Dev DS\FaceVersion1\SoluFaceVersion1\SetUpdateFotosDispositivos\bin\Debug\SetUpdateFotosDispositivos.exe
